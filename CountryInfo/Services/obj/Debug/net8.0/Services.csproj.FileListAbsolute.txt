@@ -8,6 +8,7 @@ H:\curso\UFCD5417\Projecto\CountryInfo\Services\obj\Debug\net8.0\Services.Genera
 H:\curso\UFCD5417\Projecto\CountryInfo\Services\obj\Debug\net8.0\Services.AssemblyInfoInputs.cache
 H:\curso\UFCD5417\Projecto\CountryInfo\Services\obj\Debug\net8.0\Services.AssemblyInfo.cs
 H:\curso\UFCD5417\Projecto\CountryInfo\Services\obj\Debug\net8.0\Services.csproj.CoreCompileInputs.cache
+H:\curso\UFCD5417\Projecto\CountryInfo\Services\obj\Debug\net8.0\Services.sourcelink.json
 H:\curso\UFCD5417\Projecto\CountryInfo\Services\obj\Debug\net8.0\Services.csproj.Up2Date
 H:\curso\UFCD5417\Projecto\CountryInfo\Services\obj\Debug\net8.0\Services.dll
 H:\curso\UFCD5417\Projecto\CountryInfo\Services\obj\Debug\net8.0\refint\Services.dll

@@ -15,10 +15,13 @@ H:\curso\UFCD5417\Projecto\CountryInfo\CountryInfo\obj\Debug\net8.0-windows\Coun
 H:\curso\UFCD5417\Projecto\CountryInfo\CountryInfo\obj\Debug\net8.0-windows\CountryInfo_MarkupCompile.lref
 H:\curso\UFCD5417\Projecto\CountryInfo\CountryInfo\obj\Debug\net8.0-windows\MainWindow.baml
 H:\curso\UFCD5417\Projecto\CountryInfo\CountryInfo\obj\Debug\net8.0-windows\CountryInfo.g.resources
+H:\curso\UFCD5417\Projecto\CountryInfo\CountryInfo\obj\Debug\net8.0-windows\CountryInfo.Properties.Resources.resources
+H:\curso\UFCD5417\Projecto\CountryInfo\CountryInfo\obj\Debug\net8.0-windows\CountryInfo.csproj.GenerateResource.cache
 H:\curso\UFCD5417\Projecto\CountryInfo\CountryInfo\obj\Debug\net8.0-windows\CountryInfo.GeneratedMSBuildEditorConfig.editorconfig
 H:\curso\UFCD5417\Projecto\CountryInfo\CountryInfo\obj\Debug\net8.0-windows\CountryInfo.AssemblyInfoInputs.cache
 H:\curso\UFCD5417\Projecto\CountryInfo\CountryInfo\obj\Debug\net8.0-windows\CountryInfo.AssemblyInfo.cs
 H:\curso\UFCD5417\Projecto\CountryInfo\CountryInfo\obj\Debug\net8.0-windows\CountryInfo.csproj.CoreCompileInputs.cache
+H:\curso\UFCD5417\Projecto\CountryInfo\CountryInfo\obj\Debug\net8.0-windows\CountryInfo.sourcelink.json
 H:\curso\UFCD5417\Projecto\CountryInfo\CountryInfo\obj\Debug\net8.0-windows\CountryI.831C7614.Up2Date
 H:\curso\UFCD5417\Projecto\CountryInfo\CountryInfo\obj\Debug\net8.0-windows\CountryInfo.dll
 H:\curso\UFCD5417\Projecto\CountryInfo\CountryInfo\obj\Debug\net8.0-windows\refint\CountryInfo.dll

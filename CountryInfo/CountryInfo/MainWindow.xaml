@@ -5,14 +5,14 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CountryInfo"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="750">
     <Grid Margin="20" >
         <Grid.RowDefinitions>
             <RowDefinition />
             <RowDefinition Height="50" />
         </Grid.RowDefinitions>
 
-        <DataGrid x:Name="DataGridCountries" Grid.Row="0" VerticalAlignment="Top" Height="auto">
+        <DataGrid x:Name="DataGridCountries" Grid.Row="0" VerticalAlignment="Top" Height="auto"  >
         </DataGrid>
         <Button x:Name="GetBannersSync" Grid.Row="2" Margin="10" Padding="5" Content="Download De bandeiras" Click="GetBannersSync_Click"></Button>
     </Grid>

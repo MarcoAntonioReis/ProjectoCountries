@@ -6,6 +6,7 @@ H:\curso\UFCD5417\Projecto\CountryInfo\Library\obj\Debug\net8.0\ModelesLibrary.G
 H:\curso\UFCD5417\Projecto\CountryInfo\Library\obj\Debug\net8.0\ModelesLibrary.AssemblyInfoInputs.cache
 H:\curso\UFCD5417\Projecto\CountryInfo\Library\obj\Debug\net8.0\ModelesLibrary.AssemblyInfo.cs
 H:\curso\UFCD5417\Projecto\CountryInfo\Library\obj\Debug\net8.0\ModelesLibrary.csproj.CoreCompileInputs.cache
+H:\curso\UFCD5417\Projecto\CountryInfo\Library\obj\Debug\net8.0\ModelesLibrary.sourcelink.json
 H:\curso\UFCD5417\Projecto\CountryInfo\Library\obj\Debug\net8.0\ModelesLibrary.dll
 H:\curso\UFCD5417\Projecto\CountryInfo\Library\obj\Debug\net8.0\refint\ModelesLibrary.dll
 H:\curso\UFCD5417\Projecto\CountryInfo\Library\obj\Debug\net8.0\ModelesLibrary.pdb

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace ModelesLibrary.Country_Components
 {
+    ///TODO place Read Only properties to addle data not found
     public class Gini
     {
         [JsonProperty("2017")]

@@ -24,7 +24,7 @@ namespace Services
 
                 client.BaseAddress = new Uri(urlBase);
 
-               
+
                 var response = await client.GetAsync(controller);
 
                 var result = await response.Content.ReadAsStringAsync();
@@ -63,25 +63,28 @@ namespace Services
         /// <param name="countries"></param>
         /// <param name="path"></param>
         /// <returns></returns>
-        public async Task  DownloadBanners(List<Country> countries, string path)
+        public async Task DownloadBanners(List<Country> countries, string path)
         {
             WebClient webClient = new WebClient();
 
 
-    
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
 
             foreach (Country country in countries)
             {
                 if (country.Flags != null && country.Flags.Png != null)
                 {
                     string filepath = @$"{path}/{country.Flags.Png.Substring(country.Flags.Png.LastIndexOf('/'))}";
-                    if (!File.Exists(filepath))
+                    if (filepath.EndsWith("noImg.png") || !File.Exists(filepath))
                     {
                         Uri uri = new Uri(country.Flags.Png);
 
                         await webClient.DownloadFileTaskAsync(uri, filepath);
                     }
-                   
+
                 }
             }
 
