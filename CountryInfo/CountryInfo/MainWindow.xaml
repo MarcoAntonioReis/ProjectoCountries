@@ -5,16 +5,26 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CountryInfo"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="750">
+        Title="MainWindow" Height="636" Width="585">
     <Grid Margin="20" >
         <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
             <RowDefinition />
             <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
+            <RowDefinition Height="50" />
         </Grid.RowDefinitions>
-
-        <DataGrid x:Name="DataGridCountries" Grid.Row="0" VerticalAlignment="Top" Height="auto"  >
+        <TextBlock x:Name="TxtResult" Grid.Row="0" Height="auto" ></TextBlock>
+        <DataGrid x:Name="DataGridCountries" Grid.Row="1" VerticalAlignment="Top" Height="auto"  >
+            <DataGrid.Resources>
+                <Style TargetType="DataGridRow">
+                    <EventSetter Event="MouseDoubleClick" Handler="DataGridRow_MouseDoubleClick"/>
+                </Style>
+            </DataGrid.Resources>
         </DataGrid>
-        <Button x:Name="GetBannersSync" Grid.Row="2" Margin="10" Padding="5" Content="Download De bandeiras" Click="GetBannersSync_Click"></Button>
+        <Button x:Name="BtnGetBannersSync" Grid.Row="2" Margin="10" Padding="5" Content="Download De bandeiras" Click="GetBannersSync_Click"></Button>
+        <ProgressBar x:Name="dashBordProgress" Value="0" Height="30" Margin="10" Grid.Row="3"></ProgressBar>
+        <TextBlock x:Name="TxtStatus" Grid.Row="4" Height="auto" ></TextBlock>
     </Grid>
 
 </Window>

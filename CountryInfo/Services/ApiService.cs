@@ -28,6 +28,7 @@ namespace Services
                 var response = await client.GetAsync(controller);
 
                 var result = await response.Content.ReadAsStringAsync();
+
                 if (!response.IsSuccessStatusCode)
                 {
                     return new Response
@@ -63,15 +64,13 @@ namespace Services
         /// <param name="countries"></param>
         /// <param name="path"></param>
         /// <returns></returns>
-        public async Task DownloadBanners(List<Country> countries, string path)
+        public async Task DownloadBanners(IProgress<ProgressReportModel> progress, List<Country> countries, string path)
         {
             WebClient webClient = new WebClient();
+            ProgressReportModel report = new ProgressReportModel();
 
+            CheckDirectory(path);
 
-            if (!Directory.Exists(path))
-            {
-                Directory.CreateDirectory(path);
-            }
 
             foreach (Country country in countries)
             {
@@ -86,8 +85,22 @@ namespace Services
                     }
 
                 }
+                report.Completed++;
+                report.PercentageComplete = (report.Completed * 100) / countries.Count();
+                report.Status = $"Carregadas {report.Completed} bandeiras de {countries.Count()}";
+                progress.Report(report);
             }
 
+
+        }
+
+        public void CheckDirectory(string path)
+        {
+
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
 
         }
 
