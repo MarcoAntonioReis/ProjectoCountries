@@ -37,25 +37,29 @@ namespace CountryInfo
 
         public MainWindow()
         {
+
             InitializeComponent();
+            MainStatusEvents(1);
+
             networkService = new NetworkService();
             apiService = new ApiService();
             dataService = new DataService();
+
             FlagsPath = GetFlagsPath();
             BtnGetBannersSync.IsEnabled = false;
 
             LoadData();
+
         }
 
 
         /// <summary>
-        /// Load the style and data for the data grid
+        /// Loads the data Grid with the data retrieved in the api services, it also creates a backup of the data retrieved to a local data base.
         /// </summary>
         public async void LoadGridAsync()
         {
 
-
-            await LoadGridMainData();
+            await LoadGridMainDataAsync();
             SetBannersLocalRef();
             CheckBannersExists();
             SetFlagsOnGrid();
@@ -64,6 +68,9 @@ namespace CountryInfo
 
         }
 
+        /// <summary>
+        /// Sets some of the main style of the grid
+        /// </summary>
         public void SetDataGridStyle()
         {
 
@@ -71,10 +78,12 @@ namespace CountryInfo
             DataGridCountries.FontSize = 20;
 
         }
-
+        /// <summary>
+        /// Main method for the app, it contains main logic, it checks the internet connection and acts in accord to the available connections and data. 
+        /// </summary>
         private async void LoadData()
         {
-
+            await MainStatusEvents(2);
             bool load;
 
             var connection = networkService.CheckConnection();
@@ -90,17 +99,18 @@ namespace CountryInfo
                 SetDataGridStyle();
                 LoadGridAsync();
                 load = true;
-                BtnGetBannersSync.IsEnabled=true;   
+                BtnGetBannersSync.IsEnabled = true;
             }
 
             if (Countries != null && Countries.Count() == 0)
             {
                 TxtStatus.Text = "Não ha ligação a internet, nem dados locais para carregar";
-                TxtResult.Text = "Não foi possivel carregar dados, tente outra vez conectado a internet";
+                await MainStatusEvents(-1);
             }
             else
             {
-                TxtResult.Text = "Dados carregados com sucesso";
+                await MainStatusEvents(3);
+                await MainStatusEvents(4);
                 if (load)
                 {
                     TxtStatus.Text = string.Format("Dados actualizados da internet em {0:F}", DateTime.Now);
@@ -116,6 +126,9 @@ namespace CountryInfo
 
         }
 
+        /// <summary>
+        /// method for the case of not being connected to the internet, and it retrieves countries from a local data Basse
+        /// </summary>
         private void LoadLocalCountries()
         {
             Countries = dataService.Getdata();
@@ -126,7 +139,11 @@ namespace CountryInfo
 
         }
 
-        private async Task LoadGridMainData()
+        /// <summary>
+        /// Calls the api service to get the list of coutries
+        /// </summary>
+        /// <returns></returns>
+        private async Task LoadGridMainDataAsync()
         {
 
             var response = await apiService.GetResponseAsync("https://restcountries.com/", "/v3.1/all");
@@ -139,6 +156,10 @@ namespace CountryInfo
             SetGridData();
         }
 
+
+        /// <summary>
+        /// This method is used to add the collum of the country name in the grid
+        /// </summary>
         private void SetGridData()
         {
             DataGridCountries.AutoGenerateColumns = false;
@@ -183,11 +204,11 @@ namespace CountryInfo
         }
 
 
+        /// <summary>
+        /// Method to set downloaded images flags in the grid, by setting the column of the flags to the data grid
+        /// </summary>
         private void SetFlagsOnGrid()
         {
-
-
-            ///TODO if  the image doesnt exist place a placeholder image
 
             if (DataGridCountries.Columns.Count == 2)
             {
@@ -219,15 +240,14 @@ namespace CountryInfo
             colBanner.Width = 200;
             DataGridCountries.Columns.Add(colBanner);
 
-
-
-
-
-
-
-
         }
 
+
+        /// <summary>
+        /// Method for the click event of the download flags
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private async void GetBannersSync_Click(object sender, RoutedEventArgs e)
         {
 
@@ -238,7 +258,9 @@ namespace CountryInfo
         }
 
 
-
+        /// <summary>
+        /// Method to check if all banners exits in the local folder, if it does not it will referee the country to the no image image
+        /// </summary>
         private void CheckBannersExists()
         {
 
@@ -273,35 +295,94 @@ namespace CountryInfo
 
         }
 
-
+        /// <summary>
+        /// Creates and sets the local path of the images location for each country
+        /// </summary>
         private void SetBannersLocalRef()
         {
 
-            //TODO Optimiar para não estar a sempra repetir o caminho
             foreach (Country country in Countries)
             {
                 if (country.Flags != null)
                 {
-
-                    //TODO if img does not exist load a placeholder img
                     country.Flags.LocalRef = @$"{FlagsPath}\{country.Flags.Png.Substring(country.Flags.Png.LastIndexOf('/') + 1)}";
-
                 }
             }
         }
 
 
-        private void ReportProgress(object? sender, ProgressReportModel e)
-        {
-            dashBordProgress.Value = e.PercentageComplete;
-            TxtStatus.Text = e.Status;
-        }
-
+        /// <summary>
+        /// Event to show the details of a country whin double click on the grid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void DataGridRow_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             Country country = (Country)DataGridCountries.SelectedItem;
             Details details = new Details(country);
             details.Show();
         }
+
+
+        /// <summary>
+        /// Method that is fired when a progress is made in the async download
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ReportProgress(object? sender, ProgressReportModel e)
+        {
+            dashBordProgress.Value = e.PercentageComplete;
+            TxtStatus.Text = e.Status;
+        }
+
+
+
+        /// <summary>
+        /// Method to handle the main status messages updates.
+        /// The phases are between 1 and 4 and -1 is for fail case.
+        /// </summary>
+        /// <param name="phase"></param>
+        /// <returns></returns>
+        private async Task MainStatusEvents(int phase)
+        {
+            if (phase == 1)
+            {
+
+                DashBordProgressMain.Value = 10;
+                TxtMainStatus.Text = "A inicializar elementos.";
+                await Task.Delay(1000);
+            }
+
+            if (phase == 2)
+            {
+                DashBordProgressMain.Value = 30;
+                TxtMainStatus.Text = "A recolher dados";
+                await Task.Delay(1000);
+            }
+
+            if (phase == 3)
+            {
+                DashBordProgressMain.Value = 90;
+                TxtMainStatus.Text = "A carregar dados";
+                await Task.Delay(1000);
+            }
+
+            if (phase == 4)
+            {
+                DashBordProgressMain.Value = 100;
+                TxtMainStatus.Text = "Dados carregados com sucesso";
+
+            }
+
+            if (phase == -1)
+            {
+                DashBordProgressMain.Value = 100;
+                TxtMainStatus.Text = "Não foi possivel carregar dados, tente outra vez conectado a internet";
+
+            }
+
+        }
+
+
     }
 }

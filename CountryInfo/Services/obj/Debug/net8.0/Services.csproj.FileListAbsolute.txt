@@ -1,4 +1,5 @@
 H:\curso\UFCD5417\Projecto\CountryInfo\Services\bin\Debug\net8.0\Services.deps.json
+H:\curso\UFCD5417\Projecto\CountryInfo\Services\bin\Debug\net8.0\Services.runtimeconfig.json
 H:\curso\UFCD5417\Projecto\CountryInfo\Services\bin\Debug\net8.0\Services.dll
 H:\curso\UFCD5417\Projecto\CountryInfo\Services\bin\Debug\net8.0\Services.pdb
 H:\curso\UFCD5417\Projecto\CountryInfo\Services\bin\Debug\net8.0\ModelesLibrary.dll
@@ -13,6 +14,5 @@ H:\curso\UFCD5417\Projecto\CountryInfo\Services\obj\Debug\net8.0\Services.csproj
 H:\curso\UFCD5417\Projecto\CountryInfo\Services\obj\Debug\net8.0\Services.dll
 H:\curso\UFCD5417\Projecto\CountryInfo\Services\obj\Debug\net8.0\refint\Services.dll
 H:\curso\UFCD5417\Projecto\CountryInfo\Services\obj\Debug\net8.0\Services.pdb
-H:\curso\UFCD5417\Projecto\CountryInfo\Services\obj\Debug\net8.0\ref\Services.dll
-H:\curso\UFCD5417\Projecto\CountryInfo\Services\bin\Debug\net8.0\Services.runtimeconfig.json
 H:\curso\UFCD5417\Projecto\CountryInfo\Services\obj\Debug\net8.0\Services.genruntimeconfig.cache
+H:\curso\UFCD5417\Projecto\CountryInfo\Services\obj\Debug\net8.0\ref\Services.dll

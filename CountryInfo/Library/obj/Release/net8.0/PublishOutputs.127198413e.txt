@@ -1,0 +1,4 @@
+H:\temp\teste\ModelesLibrary.dll
+H:\temp\teste\ModelesLibrary.deps.json
+H:\temp\teste\ModelesLibrary.pdb
+H:\temp\teste\Newtonsoft.Json.dll

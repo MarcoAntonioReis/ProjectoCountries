@@ -1,0 +1,13 @@
+H:\curso\UFCD5417\Projecto\CountryInfo\Library\bin\Release\net8.0\ModelesLibrary.deps.json
+H:\curso\UFCD5417\Projecto\CountryInfo\Library\bin\Release\net8.0\ModelesLibrary.dll
+H:\curso\UFCD5417\Projecto\CountryInfo\Library\bin\Release\net8.0\ModelesLibrary.pdb
+H:\curso\UFCD5417\Projecto\CountryInfo\Library\obj\Release\net8.0\ModelesLibrary.csproj.AssemblyReference.cache
+H:\curso\UFCD5417\Projecto\CountryInfo\Library\obj\Release\net8.0\ModelesLibrary.GeneratedMSBuildEditorConfig.editorconfig
+H:\curso\UFCD5417\Projecto\CountryInfo\Library\obj\Release\net8.0\ModelesLibrary.AssemblyInfoInputs.cache
+H:\curso\UFCD5417\Projecto\CountryInfo\Library\obj\Release\net8.0\ModelesLibrary.AssemblyInfo.cs
+H:\curso\UFCD5417\Projecto\CountryInfo\Library\obj\Release\net8.0\ModelesLibrary.csproj.CoreCompileInputs.cache
+H:\curso\UFCD5417\Projecto\CountryInfo\Library\obj\Release\net8.0\ModelesLibrary.sourcelink.json
+H:\curso\UFCD5417\Projecto\CountryInfo\Library\obj\Release\net8.0\ModelesLibrary.dll
+H:\curso\UFCD5417\Projecto\CountryInfo\Library\obj\Release\net8.0\refint\ModelesLibrary.dll
+H:\curso\UFCD5417\Projecto\CountryInfo\Library\obj\Release\net8.0\ModelesLibrary.pdb
+H:\curso\UFCD5417\Projecto\CountryInfo\Library\obj\Release\net8.0\ref\ModelesLibrary.dll
