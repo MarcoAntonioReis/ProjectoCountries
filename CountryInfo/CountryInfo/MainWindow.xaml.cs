@@ -1,26 +1,11 @@
 ﻿using Library;
+using ModelesLibrary;
 using Services;
-using System.Diagnostics.Metrics;
-using System.Net.NetworkInformation;
-using System.Runtime.Serialization.Formatters;
-using System.Text;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Controls.Primitives;
 using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using System.Reflection;
-using System.IO;
-using System.Net;
-using System;
-using System.IO.Pipes;
-using ModelesLibrary;
 
 namespace CountryInfo
 {
@@ -198,9 +183,14 @@ namespace CountryInfo
         {
             string workingDirectory = Environment.CurrentDirectory;
 
-            string FlagsPath = $"{Directory.GetParent(workingDirectory).Parent.Parent.FullName}/Flags";
+            //Warning does not work in published
+            //string GenFlagsPath = $"{Directory.GetParent(workingDirectory).Parent.Parent.FullName}/Flags";
+            string RelasePath = $"{System.AppDomain.CurrentDomain.BaseDirectory}/Flags";
 
-            return @$"{FlagsPath}\";
+
+            return @$"{RelasePath}\";
+
+
         }
 
 
@@ -263,18 +253,20 @@ namespace CountryInfo
         /// </summary>
         private void CheckBannersExists()
         {
-
+            //Warning does not work in published
             //Checks if the placeholder ims exist if not it creates one
             if (!File.Exists(@$"{FlagsPath}\noImg.png"))
             {
                 string workingDirectory = Environment.CurrentDirectory;
-                string ResourcesPath = @$"{Directory.GetParent(workingDirectory).Parent.Parent.FullName}/Resources";
+                //string ResourcesPath = @$"{Directory.GetParent(workingDirectory).Parent.Parent.FullName}/Resources";
 
                 apiService.CheckDirectory(GetFlagsPath());
 
                 if (File.Exists(@$"{Directory.GetParent(workingDirectory).Parent.Parent.FullName}/Resources/noImg.png"))
                 {
-                    File.Copy(@$"{ResourcesPath}\noImg.png", @$"{FlagsPath}\noImg.png");
+                    //File.Copy(@$"{ResourcesPath}\noImg.png", @$"{FlagsPath}\noImg.png");
+
+                    File.WriteAllBytes(@$"{workingDirectory}\flags\noImg.png", Properties.Resources.noImg);
                 }
 
             }

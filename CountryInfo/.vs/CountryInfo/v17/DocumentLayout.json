@@ -3,52 +3,12 @@
   "WorkspaceRootPath": "H:\\curso\\UFCD5417\\Projecto\\CountryInfo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B4A3D8AF-9628-42E9-8E32-4A8C376282BD}|CountryInfo\\CountryInfo.csproj|h:\\curso\\ufcd5417\\projecto\\countryinfo\\countryinfo\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4A3D8AF-9628-42E9-8E32-4A8C376282BD}|CountryInfo\\CountryInfo.csproj|solutionrelative:countryinfo\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B4A3D8AF-9628-42E9-8E32-4A8C376282BD}|CountryInfo\\CountryInfo.csproj|h:\\curso\\ufcd5417\\projecto\\countryinfo\\countryinfo\\details.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
-      "RelativeMoniker": "D:0:0:{B4A3D8AF-9628-42E9-8E32-4A8C376282BD}|CountryInfo\\CountryInfo.csproj|solutionrelative:countryinfo\\details.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B4A3D8AF-9628-42E9-8E32-4A8C376282BD}|CountryInfo\\CountryInfo.csproj|h:\\curso\\ufcd5417\\projecto\\countryinfo\\countryinfo\\app.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
-      "RelativeMoniker": "D:0:0:{B4A3D8AF-9628-42E9-8E32-4A8C376282BD}|CountryInfo\\CountryInfo.csproj|solutionrelative:countryinfo\\app.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B4A3D8AF-9628-42E9-8E32-4A8C376282BD}|CountryInfo\\CountryInfo.csproj|h:\\curso\\ufcd5417\\projecto\\countryinfo\\countryinfo\\countryinfo.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{B4A3D8AF-9628-42E9-8E32-4A8C376282BD}|CountryInfo\\CountryInfo.csproj|solutionrelative:countryinfo\\countryinfo.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B4A3D8AF-9628-42E9-8E32-4A8C376282BD}|CountryInfo\\CountryInfo.csproj|h:\\curso\\ufcd5417\\projecto\\countryinfo\\countryinfo\\details.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B4A3D8AF-9628-42E9-8E32-4A8C376282BD}|CountryInfo\\CountryInfo.csproj|solutionrelative:countryinfo\\details.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B4A3D8AF-9628-42E9-8E32-4A8C376282BD}|CountryInfo\\CountryInfo.csproj|h:\\curso\\ufcd5417\\projecto\\countryinfo\\countryinfo\\mainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
       "RelativeMoniker": "D:0:0:{B4A3D8AF-9628-42E9-8E32-4A8C376282BD}|CountryInfo\\CountryInfo.csproj|solutionrelative:countryinfo\\mainwindow.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B4A3D8AF-9628-42E9-8E32-4A8C376282BD}|CountryInfo\\CountryInfo.csproj|h:\\curso\\ufcd5417\\projecto\\countryinfo\\countryinfo\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{B4A3D8AF-9628-42E9-8E32-4A8C376282BD}|CountryInfo\\CountryInfo.csproj|solutionrelative:countryinfo\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F1F2F7A6-FC3F-4A84-B597-FC8E6EF6950E}|Services\\Services.csproj|h:\\curso\\ufcd5417\\projecto\\countryinfo\\services\\apiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F1F2F7A6-FC3F-4A84-B597-FC8E6EF6950E}|Services\\Services.csproj|solutionrelative:services\\apiservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C2338496-708D-4604-81A1-A891DF42921A}|Library\\ModelesLibrary.csproj|h:\\curso\\ufcd5417\\projecto\\countryinfo\\library\\progressreportmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C2338496-708D-4604-81A1-A891DF42921A}|Library\\ModelesLibrary.csproj|solutionrelative:library\\progressreportmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F1F2F7A6-FC3F-4A84-B597-FC8E6EF6950E}|Services\\Services.csproj|h:\\curso\\ufcd5417\\projecto\\countryinfo\\services\\dataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F1F2F7A6-FC3F-4A84-B597-FC8E6EF6950E}|Services\\Services.csproj|solutionrelative:services\\dataservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F1F2F7A6-FC3F-4A84-B597-FC8E6EF6950E}|Services\\Services.csproj|h:\\curso\\ufcd5417\\projecto\\countryinfo\\services\\networkservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F1F2F7A6-FC3F-4A84-B597-FC8E6EF6950E}|Services\\Services.csproj|solutionrelative:services\\networkservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C2338496-708D-4604-81A1-A891DF42921A}|Library\\ModelesLibrary.csproj|h:\\curso\\ufcd5417\\projecto\\countryinfo\\library\\country.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C2338496-708D-4604-81A1-A891DF42921A}|Library\\ModelesLibrary.csproj|solutionrelative:library\\country.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -75,145 +35,27 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AssemblyInfo.cs",
-              "DocumentMoniker": "H:\\curso\\UFCD5417\\Projecto\\CountryInfo\\CountryInfo\\AssemblyInfo.cs",
-              "RelativeDocumentMoniker": "CountryInfo\\AssemblyInfo.cs",
-              "ToolTip": "H:\\curso\\UFCD5417\\Projecto\\CountryInfo\\CountryInfo\\AssemblyInfo.cs",
-              "RelativeToolTip": "CountryInfo\\AssemblyInfo.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "H:\\curso\\UFCD5417\\Projecto\\CountryInfo\\CountryInfo\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "CountryInfo\\MainWindow.xaml.cs",
+              "ToolTip": "H:\\curso\\UFCD5417\\Projecto\\CountryInfo\\CountryInfo\\MainWindow.xaml.cs",
+              "RelativeToolTip": "CountryInfo\\MainWindow.xaml.cs",
+              "ViewState": "AQIAAKsAAAAAAAAAAAAiwP8AAAAwAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-15T17:44:47.563Z",
+              "WhenOpened": "2024-07-16T09:02:02.506Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Details.xaml",
-              "DocumentMoniker": "H:\\curso\\UFCD5417\\Projecto\\CountryInfo\\CountryInfo\\Details.xaml",
-              "RelativeDocumentMoniker": "CountryInfo\\Details.xaml",
-              "ToolTip": "H:\\curso\\UFCD5417\\Projecto\\CountryInfo\\CountryInfo\\Details.xaml",
-              "RelativeToolTip": "CountryInfo\\Details.xaml",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-07-15T17:29:39.299Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Country.cs",
-              "DocumentMoniker": "H:\\curso\\UFCD5417\\Projecto\\CountryInfo\\Library\\Country.cs",
-              "RelativeDocumentMoniker": "Library\\Country.cs",
-              "ToolTip": "H:\\curso\\UFCD5417\\Projecto\\CountryInfo\\Library\\Country.cs",
-              "RelativeToolTip": "Library\\Country.cs",
-              "ViewState": "AQIAAGIAAAAAAAAAAAAUwHsAAAAsAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-14T18:29:21.981Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "NetworkService.cs",
-              "DocumentMoniker": "H:\\curso\\UFCD5417\\Projecto\\CountryInfo\\Services\\NetworkService.cs",
-              "RelativeDocumentMoniker": "Services\\NetworkService.cs",
-              "ToolTip": "H:\\curso\\UFCD5417\\Projecto\\CountryInfo\\Services\\NetworkService.cs",
-              "RelativeToolTip": "Services\\NetworkService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAmAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-14T16:10:30.294Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "DataService.cs",
-              "DocumentMoniker": "H:\\curso\\UFCD5417\\Projecto\\CountryInfo\\Services\\DataService.cs",
-              "RelativeDocumentMoniker": "Services\\DataService.cs",
-              "ToolTip": "H:\\curso\\UFCD5417\\Projecto\\CountryInfo\\Services\\DataService.cs",
-              "RelativeToolTip": "Services\\DataService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAGYAAAA6AAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-14T14:07:52.78Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CountryInfo.csproj",
-              "DocumentMoniker": "H:\\curso\\UFCD5417\\Projecto\\CountryInfo\\CountryInfo\\CountryInfo.csproj",
-              "RelativeDocumentMoniker": "CountryInfo\\CountryInfo.csproj",
-              "ToolTip": "H:\\curso\\UFCD5417\\Projecto\\CountryInfo\\CountryInfo\\CountryInfo.csproj",
-              "RelativeToolTip": "CountryInfo\\CountryInfo.csproj",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2024-07-13T11:48:07.024Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "H:\\curso\\UFCD5417\\Projecto\\CountryInfo\\CountryInfo\\MainWindow.xaml",
               "RelativeDocumentMoniker": "CountryInfo\\MainWindow.xaml",
               "ToolTip": "H:\\curso\\UFCD5417\\Projecto\\CountryInfo\\CountryInfo\\MainWindow.xaml",
               "RelativeToolTip": "CountryInfo\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
-              "WhenOpened": "2024-07-11T15:42:49.273Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "ProgressReportModel.cs",
-              "DocumentMoniker": "H:\\curso\\UFCD5417\\Projecto\\CountryInfo\\Library\\ProgressReportModel.cs",
-              "RelativeDocumentMoniker": "Library\\ProgressReportModel.cs",
-              "ToolTip": "H:\\curso\\UFCD5417\\Projecto\\CountryInfo\\Library\\ProgressReportModel.cs",
-              "RelativeToolTip": "Library\\ProgressReportModel.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAArAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-11T15:23:47.842Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "ApiService.cs",
-              "DocumentMoniker": "H:\\curso\\UFCD5417\\Projecto\\CountryInfo\\Services\\ApiService.cs",
-              "RelativeDocumentMoniker": "Services\\ApiService.cs",
-              "ToolTip": "H:\\curso\\UFCD5417\\Projecto\\CountryInfo\\Services\\ApiService.cs",
-              "RelativeToolTip": "Services\\ApiService.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAiwDoAAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-11T15:19:18.117Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "App.xaml.cs",
-              "DocumentMoniker": "H:\\curso\\UFCD5417\\Projecto\\CountryInfo\\CountryInfo\\App.xaml.cs",
-              "RelativeDocumentMoniker": "CountryInfo\\App.xaml.cs",
-              "ToolTip": "H:\\curso\\UFCD5417\\Projecto\\CountryInfo\\CountryInfo\\App.xaml.cs",
-              "RelativeToolTip": "CountryInfo\\App.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-11T12:48:03.373Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Details.xaml.cs",
-              "DocumentMoniker": "H:\\curso\\UFCD5417\\Projecto\\CountryInfo\\CountryInfo\\Details.xaml.cs",
-              "RelativeDocumentMoniker": "CountryInfo\\Details.xaml.cs",
-              "ToolTip": "H:\\curso\\UFCD5417\\Projecto\\CountryInfo\\CountryInfo\\Details.xaml.cs",
-              "RelativeToolTip": "CountryInfo\\Details.xaml.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAVAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-11T11:09:10.284Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "MainWindow.xaml.cs",
-              "DocumentMoniker": "H:\\curso\\UFCD5417\\Projecto\\CountryInfo\\CountryInfo\\MainWindow.xaml.cs",
-              "RelativeDocumentMoniker": "CountryInfo\\MainWindow.xaml.cs",
-              "ToolTip": "H:\\curso\\UFCD5417\\Projecto\\CountryInfo\\CountryInfo\\MainWindow.xaml.cs",
-              "RelativeToolTip": "CountryInfo\\MainWindow.xaml.cs",
-              "ViewState": "AQIAABwAAAAAAAAAAABQwCgAAAAMAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-11T11:01:03.171Z"
+              "WhenOpened": "2024-07-16T09:01:58.85Z",
+              "EditorCaption": ""
             }
           ]
         }
