@@ -9,8 +9,9 @@
       "CountryInfo/1.0.0": {
         "dependencies": {
           "Services": "1.0.0",
-          "Syncfusion.Licensing": "26.1.41",
-          "Syncfusion.SfAccordion.WPF": "26.1.41"
+          "Syncfusion.Licensing": "26.1.42",
+          "Syncfusion.SfAccordion.WPF": "26.1.42",
+          "Syncfusion.SfMaps.WPF": "26.1.42"
         },
         "runtime": {
           "CountryInfo.dll": {}
@@ -120,22 +121,45 @@
           }
         }
       },
-      "Syncfusion.Licensing/26.1.41": {
+      "Syncfusion.Licensing/26.1.42": {
         "runtime": {
           "lib/net8.0/Syncfusion.Licensing.dll": {
-            "assemblyVersion": "26.1.41.0",
-            "fileVersion": "26.1.41.0"
+            "assemblyVersion": "26.1.42.0",
+            "fileVersion": "26.1.42.0"
           }
         }
       },
-      "Syncfusion.SfAccordion.WPF/26.1.41": {
+      "Syncfusion.SfAccordion.WPF/26.1.42": {
         "dependencies": {
-          "Syncfusion.Licensing": "26.1.41"
+          "Syncfusion.Licensing": "26.1.42"
         },
         "runtime": {
           "lib/net6.0-windows7.0/Syncfusion.SfAccordion.WPF.dll": {
-            "assemblyVersion": "26.1.41.0",
-            "fileVersion": "26.1.41.0"
+            "assemblyVersion": "26.1.42.0",
+            "fileVersion": "26.1.42.0"
+          }
+        }
+      },
+      "Syncfusion.SfMaps.WPF/26.1.42": {
+        "dependencies": {
+          "Syncfusion.Licensing": "26.1.42",
+          "Syncfusion.Shared.WPF": "26.1.42"
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/Syncfusion.SfMaps.WPF.dll": {
+            "assemblyVersion": "26.1.42.0",
+            "fileVersion": "26.1.42.0"
+          }
+        }
+      },
+      "Syncfusion.Shared.WPF/26.1.42": {
+        "dependencies": {
+          "Syncfusion.Licensing": "26.1.42"
+        },
+        "runtime": {
+          "lib/net6.0-windows7.0/Syncfusion.Shared.WPF.dll": {
+            "assemblyVersion": "26.1.42.0",
+            "fileVersion": "26.1.42.0"
           }
         }
       },
@@ -324,19 +348,33 @@
       "path": "stub.system.data.sqlite.core.netstandard/1.0.118",
       "hashPath": "stub.system.data.sqlite.core.netstandard.1.0.118.nupkg.sha512"
     },
-    "Syncfusion.Licensing/26.1.41": {
+    "Syncfusion.Licensing/26.1.42": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-wVoYRc/BHbIPjEC9wxgdInp9+m4wWLU3bWzhJXfKAep9O/SKtsmGJuoU4+zYjiuoUp7yoJ4vYnCA7wYLcqp8Cg==",
-      "path": "syncfusion.licensing/26.1.41",
-      "hashPath": "syncfusion.licensing.26.1.41.nupkg.sha512"
+      "sha512": "sha512-WkmHI0+TnRDLxD1jyDcdVMK5RjsxG/mm/jb4jNwlttg7wkG3fub3qmQgyj1y1FJGqiqD+1VPP4I93FROGlMvKg==",
+      "path": "syncfusion.licensing/26.1.42",
+      "hashPath": "syncfusion.licensing.26.1.42.nupkg.sha512"
     },
-    "Syncfusion.SfAccordion.WPF/26.1.41": {
+    "Syncfusion.SfAccordion.WPF/26.1.42": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-opdkkz0AMz7wUnChDGNovaCEW68BEPd+XojnpplNW+GAHVyU0qvc/nZRvJyDdKicqRHIAlcX+zJiThsBKW4MWQ==",
-      "path": "syncfusion.sfaccordion.wpf/26.1.41",
-      "hashPath": "syncfusion.sfaccordion.wpf.26.1.41.nupkg.sha512"
+      "sha512": "sha512-8+MAmNsujRKUqxd50r/AJqTjzUr5k9m6mfYqsOXEIyvR4mWHtC05GpB2+L+IyZjCrHDBP7XsYWIr+7BJ0UX5PA==",
+      "path": "syncfusion.sfaccordion.wpf/26.1.42",
+      "hashPath": "syncfusion.sfaccordion.wpf.26.1.42.nupkg.sha512"
+    },
+    "Syncfusion.SfMaps.WPF/26.1.42": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-dPgnW39k6/0mTH5NQirIOHbWqYNBhiXg8ulrn5peSrubSgHCtlc18nwKdDTeAbYnV4ekydkzMObuFE9wdnUaQQ==",
+      "path": "syncfusion.sfmaps.wpf/26.1.42",
+      "hashPath": "syncfusion.sfmaps.wpf.26.1.42.nupkg.sha512"
+    },
+    "Syncfusion.Shared.WPF/26.1.42": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-IuKVGx4V74RWZ6Op1XfAJOzoaL/b+X4RI+S1PGn4+d99wp7r3mzYnPCz6KrwtWWF8M2GhVGsEdwvP1IBLN7uPQ==",
+      "path": "syncfusion.shared.wpf/26.1.42",
+      "hashPath": "syncfusion.shared.wpf.26.1.42.nupkg.sha512"
     },
     "System.CodeDom/4.7.0": {
       "type": "package",

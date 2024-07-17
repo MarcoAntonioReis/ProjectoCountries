@@ -8,6 +8,9 @@ namespace Library.Country_Components
 {
     public class Name
     {
+        /// <summary>
+        /// This sting is used to store and show what the message is if no data is available
+        /// </summary>
         private string NoDataMsg = "Dados não disponíveis";
         public string Common { get; set; }
         public string GetCommonString

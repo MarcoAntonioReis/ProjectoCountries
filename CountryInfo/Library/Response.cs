@@ -5,7 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ModelesLibrary
-{
+{/// <summary>
+/// todo add instructions
+/// </summary>
     public class Response
     {
         public bool IsSuccess { get; set; }

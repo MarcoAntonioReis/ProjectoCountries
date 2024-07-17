@@ -16,8 +16,9 @@
 
 
   <ItemGroup>
-    <PackageReference Include="Syncfusion.Licensing" Version="26.1.41" />
-    <PackageReference Include="Syncfusion.SfAccordion.WPF" Version="26.1.41" />
+    <PackageReference Include="Syncfusion.Licensing" Version="26.1.42" />
+    <PackageReference Include="Syncfusion.SfAccordion.WPF" Version="26.1.42" />
+    <PackageReference Include="Syncfusion.SfMaps.WPF" Version="26.1.42" />
   </ItemGroup>
 
   <ItemGroup>

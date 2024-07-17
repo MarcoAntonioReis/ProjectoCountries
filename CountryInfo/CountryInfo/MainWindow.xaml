@@ -8,25 +8,30 @@
         Title="MainWindow" Height="636" Width="585">
     <Grid Margin="20" >
         <Grid.RowDefinitions>
-            <RowDefinition Height="50"/>
-            <RowDefinition Height="50"/>
-            <RowDefinition />
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="25"/>
+            <RowDefinition/>
             <RowDefinition Height="50" />
             <RowDefinition Height="50" />
             <RowDefinition Height="50" />
         </Grid.RowDefinitions>
         <TextBlock x:Name="TxtMainStatus" Grid.Row="0" Height="auto" ></TextBlock>
-        <ProgressBar x:Name="DashBordProgressMain" Value="0" Height="30" Margin="10" Grid.Row="1"></ProgressBar>
-        <DataGrid x:Name="DataGridCountries" Grid.Row="2" VerticalAlignment="Top" Height="auto"  >
+        <ProgressBar x:Name="DashBordProgressMain" Value="0" Height="30" Margin="0,10,0,10" Grid.Row="1"></ProgressBar>
+        <TextBlock Grid.Row="2" FontSize="16" Width="180" HorizontalAlignment="Left" Margin="0,0,0,0" >Pesquisa por Nome:</TextBlock>
+        <TextBox x:Name="TxtSearch" FontSize="16"  Grid.Row="2" Width="190" Margin="150,0,0,0" HorizontalAlignment="Left"></TextBox>
+        <Button x:Name="BtnSearch" Grid.Row="2" Width="75" Margin="220,0,0,0" Click="BtnSearch_Click">Pesquisar</Button>
+        <ComboBox x:Name="ComboRegions" Grid.Row="2" Width="100" HorizontalAlignment="Right" SelectionChanged="ComboRegions_SelectionChanged"></ComboBox>
+        <DataGrid x:Name="DataGridCountries" Grid.Row="3" VerticalAlignment="Top" Height="auto" Margin="0,20,0,0"  >
             <DataGrid.Resources>
                 <Style TargetType="DataGridRow">
                     <EventSetter Event="MouseDoubleClick" Handler="DataGridRow_MouseDoubleClick"/>
                 </Style>
             </DataGrid.Resources>
         </DataGrid>
-        <Button x:Name="BtnGetBannersSync" Grid.Row="3" Margin="10" Padding="5" Content="Download De bandeiras" Click="GetBannersSync_Click"></Button>
-        <ProgressBar x:Name="dashBordProgress" Value="0" Height="30" Margin="10" Grid.Row="4"></ProgressBar>
-        <TextBlock x:Name="TxtStatus" Grid.Row="5" Height="auto" ></TextBlock>
+        <Button x:Name="BtnGetBannersSync" Grid.Row="4" Margin="0,10,0,10" Padding="5" Content="Download De bandeiras" Click="GetBannersSync_Click"></Button>
+        <ProgressBar x:Name="dashBordProgress" Value="0" Height="30" Margin="0,10,0,10" Grid.Row="5"></ProgressBar>
+        <TextBlock x:Name="TxtStatus" Grid.Row="6" Height="auto" ></TextBlock>
     </Grid>
 
 </Window>

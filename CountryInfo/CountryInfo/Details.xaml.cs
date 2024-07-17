@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -12,6 +14,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Library;
+using ModelesLibrary;
+using Syncfusion.UI.Xaml.Maps;
 using Syncfusion.Windows.Controls.Layout;
 
 namespace CountryInfo
@@ -68,7 +72,7 @@ namespace CountryInfo
             accordionItem3.Header = "Capital";
 
             //Checks if Country has more than 1 capital
-            if (country.Capital.Count>1)
+            if (country.Capital!=null && country.Capital.Count>1)
             {
                 int countCapitals = 1;
                 foreach (string capital in country.Capital)
@@ -119,10 +123,29 @@ namespace CountryInfo
             else {
                 tempContent += country.LastGine;
             }
-            
-            
+
 
             accordionItem6.Content = tempContent;
+
+
+
+            SfAccordionItem accordionItem7 = new SfAccordionItem();
+            accordionItem7.Header ="Mapa";
+            SfMap syncMap = new SfMap();
+
+
+            ImageryLayer MapData = new ImageryLayer();
+            Point point = new Point();
+            point.X = country.GetLatlng[0];
+            point.Y = country.GetLatlng[1];
+
+            MapData.Center = point;
+            syncMap.Layers.Add(MapData);
+
+            syncMap.ZoomLevel = 5;
+            accordionItem7.Content = syncMap;
+
+
 
 
             //Adding the items to the accordion
@@ -132,11 +155,16 @@ namespace CountryInfo
             accordion.Items.Add(accordionItem4);
             accordion.Items.Add(accordionItem5);
             accordion.Items.Add(accordionItem6);
+            accordion.Items.Add(accordionItem7);
 
-            //Ading the accordion to the veiw
+            //Adding the accordion to the view
             this.Content = accordion;
 
 
         }
+
+       
+
+
     }
 }

@@ -9,12 +9,17 @@ using System.Threading.Tasks;
 
 namespace Library
 {
+    /// <summary>
+    /// Please use the get X properties instead of the regular one if possible, this guaranties that in case of no data being available, a string is returned with a warning in place of null
+    /// </summary>
     public class Country
     {
 
 
-        ///TODO place Read Only properties to addle data not found
 
+        /// <summary>
+        /// This sting is used to store and show what the message is if no data is available
+        /// </summary>
         private string NoDataMsg = "Dados não disponíveis";
 
         public Name Name { get; set; }
@@ -210,7 +215,22 @@ namespace Library
 
         public Flags Flags { get; set; }
 
+        public List<double> latlng { get; set; }
 
+        public List<double> GetLatlng { get {
+                if (latlng!=null)
+                {
+                    return latlng;
+                }
+                else
+                {
+                    List<double> temp = new List<double>();
+                    temp.Add(0);
+                    temp.Add(0);
+                    return temp;
+                }
+            
+            } }
 
     }
 }

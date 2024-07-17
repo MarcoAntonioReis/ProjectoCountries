@@ -13,6 +13,10 @@ namespace Library.Country_Components
         public string Png { get; set; }
         public string Svg { get; set; }
         public string Alt { get; set; }
+
+        /// <summary>
+        /// This is a property that is intendent from the API data received, used to store the locations of images locally
+        /// </summary>
         public string LocalRef { get; set; }
 
         public string GetLocalRefString

@@ -1,7 +1,9 @@
 ﻿using Library;
 using ModelesLibrary;
 using Services;
+using System.Buffers;
 using System.IO;
+using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -41,7 +43,7 @@ namespace CountryInfo
         /// <summary>
         /// Loads the data Grid with the data retrieved in the api services, it also creates a backup of the data retrieved to a local data base.
         /// </summary>
-        public async void LoadGridAsync()
+        public async Task LoadGridAsync()
         {
 
             await LoadGridMainDataAsync();
@@ -82,18 +84,25 @@ namespace CountryInfo
             else
             {
                 SetDataGridStyle();
-                LoadGridAsync();
+                await LoadGridAsync();
                 load = true;
                 BtnGetBannersSync.IsEnabled = true;
             }
 
-            if (Countries != null && Countries.Count() == 0)
+
+            if (Countries == null || Countries.Count() == 0)
             {
                 TxtStatus.Text = "Não ha ligação a internet, nem dados locais para carregar";
                 await MainStatusEvents(-1);
             }
             else
             {
+
+                List<string> RegionsList = new List<string>();
+                RegionsList.Add(" ");
+                RegionsList.AddRange(Countries.Select(x => x.Region).Distinct().ToList());
+                ComboRegions.ItemsSource = RegionsList;
+
                 await MainStatusEvents(3);
                 await MainStatusEvents(4);
                 if (load)
@@ -375,6 +384,50 @@ namespace CountryInfo
 
         }
 
+        private void BtnSearch_Click(object sender, RoutedEventArgs e)
+        {
+            DataGridCountries.ItemsSource = null;
+            DataGridCountries.ItemsSource = Search();
+        }
 
+        private void ComboRegions_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DataGridCountries.ItemsSource = null;
+            DataGridCountries.ItemsSource = Search();
+        }
+
+        /// <summary>
+        /// Method that collets the search paraments from the view, and narrows the items showed 
+        /// </summary>
+        /// <returns></returns>
+        private List<Country> Search()
+        {
+            List<Country> SearchResult = new List<Country>();
+            string RegionValue = ComboRegions.SelectedValue?.ToString();
+            string NameValue = TxtSearch.Text;
+            if (!string.IsNullOrWhiteSpace(RegionValue))
+            {
+                SearchResult = Countries.Where(x => x.Region == RegionValue).ToList();
+                if (!string.IsNullOrWhiteSpace(NameValue))
+                {
+                    //To lower is used ignore the lower/upper case of letters in the serach
+                    SearchResult = SearchResult.Where(x => x.Name.Common.ToLower().Contains(NameValue.ToLower())).ToList();
+                }
+
+            }
+            else
+            {
+                if (!string.IsNullOrWhiteSpace(NameValue))
+                {
+                    SearchResult = Countries.Where(x => x.Name.Common.ToLower().Contains(NameValue.ToLower())).ToList();
+                }
+                else
+                {
+                    SearchResult = Countries;
+                }
+            }
+
+            return SearchResult;
+        }
     }
 }
