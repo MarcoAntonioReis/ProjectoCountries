@@ -127,23 +127,33 @@ namespace CountryInfo
 
             accordionItem6.Content = tempContent;
 
-
-
             SfAccordionItem accordionItem7 = new SfAccordionItem();
-            accordionItem7.Header ="Mapa";
-            SfMap syncMap = new SfMap();
+            accordionItem7.Header = "Mapa";
+            
+
+            if (country.GetLatlng[0]<-80||(country.GetLatlng[0]==0&& country.GetLatlng[1] == 0))
+            {
+                accordionItem7.Content = "Dados não disponivel";
+            }
+            else
+            {
+                SfMap syncMap = new SfMap();
+                ImageryLayerExt MapData = new ImageryLayerExt();
+                Point point = new Point();
+                point.X = country.GetLatlng[0];
+                point.Y = country.GetLatlng[1];
+
+                MapData.Center = point;
+                syncMap.Layers.Add(MapData);
+
+                syncMap.ZoomLevel = 5;
+                accordionItem7.Content = syncMap;
+            }
+            
 
 
-            ImageryLayer MapData = new ImageryLayer();
-            Point point = new Point();
-            point.X = country.GetLatlng[0];
-            point.Y = country.GetLatlng[1];
-
-            MapData.Center = point;
-            syncMap.Layers.Add(MapData);
-
-            syncMap.ZoomLevel = 5;
-            accordionItem7.Content = syncMap;
+            
+            
 
 
 
@@ -163,7 +173,17 @@ namespace CountryInfo
 
         }
 
-       
+        /// <summary>
+        /// contains the override to use the google maps
+        /// </summary>
+        public class ImageryLayerExt : ImageryLayer
+        {
+            protected override string GetUri(int X, int Y, int Scale)
+            {
+                var link = "http://mt1.google.com/vt/lyrs=y&x=" + X.ToString() + "&y=" + Y.ToString() + "&z=" + Scale.ToString();
+                return link;
+            }
+        }
 
 
     }
