@@ -13,4 +13,6 @@ base de dados local.
 
 Pesquisa de Países.
 
+Ajustar o zoom do mapa pela aria do país
+
 https://help.syncfusion.com/wpf/maps/getting-started
