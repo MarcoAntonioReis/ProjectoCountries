@@ -47,12 +47,29 @@ namespace CountryInfo
         {
 
             await LoadGridMainDataAsync();
-            SetBannersLocalRef();
-            CheckBannersExists();
-            SetFlagsOnGrid();
+            if (Countries != null)
+            {
+                SetBannersLocalRef();
+                CheckBannersExists();
+                SetFlagsOnGrid();
+            }
+            else
+            {
+
+                await MainStatusEvents(-2);
+            }
+
+
+
+        }
+
+        /// <summary>
+        /// TODO melhorar
+        /// </summary>
+        public void SaveToLocal()
+        {
             dataService.DeleteData();
             dataService.SaveData(Countries);
-
         }
 
         /// <summary>
@@ -85,19 +102,14 @@ namespace CountryInfo
             {
                 SetDataGridStyle();
                 await LoadGridAsync();
+                SaveToLocal();
                 load = true;
                 BtnGetBannersSync.IsEnabled = true;
             }
 
 
-            if (Countries == null || Countries.Count() == 0)
+            if (Countries != null )
             {
-                TxtStatus.Text = "Não ha ligação a internet, nem dados locais para carregar";
-                await MainStatusEvents(-1);
-            }
-            else
-            {
-
                 List<string> RegionsList = new List<string>();
                 RegionsList.Add(" ");
                 RegionsList.AddRange(Countries.Select(x => x.Region).Distinct().ToList());
@@ -113,7 +125,6 @@ namespace CountryInfo
                 {
                     TxtStatus.Text = string.Format("Dados carregados localmente");
                 }
-
             }
 
 
@@ -123,12 +134,20 @@ namespace CountryInfo
         /// <summary>
         /// method for the case of not being connected to the internet, and it retrieves countries from a local data Basse
         /// </summary>
-        private void LoadLocalCountries()
+        private async void LoadLocalCountries()
         {
             Countries = dataService.Getdata();
-            SetGridData();
-            CheckBannersExists();
-            SetFlagsOnGrid();
+            if (Countries != null)
+            {
+                SetGridData();
+                CheckBannersExists();
+                SetFlagsOnGrid();
+            }
+            else
+            {
+                await MainStatusEvents(-1);
+            }
+
 
 
         }
@@ -346,41 +365,53 @@ namespace CountryInfo
         /// <returns></returns>
         private async Task MainStatusEvents(int phase)
         {
-            if (phase == 1)
-            {
 
-                DashBordProgressMain.Value = 10;
-                TxtMainStatus.Text = "A inicializar elementos.";
-                await Task.Delay(1000);
+            switch (phase)
+            {
+                case 1:
+                    DashBordProgressMain.Value = 10;
+                    TxtMainStatus.Text = "A inicializar elementos.";
+                    await Task.Delay(1000);
+                    break;
+
+                case 2:
+                    DashBordProgressMain.Value = 30;
+                    TxtMainStatus.Text = "A recolher dados";
+                    await Task.Delay(1000);
+                    break;
+
+
+                case 3:
+                    DashBordProgressMain.Value = 90;
+                    TxtMainStatus.Text = "A carregar dados";
+                    await Task.Delay(1000);
+                    break;
+
+                case 4:
+                    DashBordProgressMain.Value = 100;
+                    TxtMainStatus.Text = "Dados carregados com sucesso";
+                    break;
+                case -1:
+                    DashBordProgressMain.Value = 100;
+                    TxtMainStatus.Text = "Não foi possivel carregar dados, tente outra vez conectado a internet.";
+                    break;
+
+                case -2:
+                    DashBordProgressMain.Value = 100;
+                    TxtMainStatus.Text = "Não foi possivel carregar dados mesmo com internet, tente mais tarde.";
+                    break;
+
+
+                default:
+                    break;
             }
 
-            if (phase == 2)
-            {
-                DashBordProgressMain.Value = 30;
-                TxtMainStatus.Text = "A recolher dados";
-                await Task.Delay(1000);
-            }
 
-            if (phase == 3)
-            {
-                DashBordProgressMain.Value = 90;
-                TxtMainStatus.Text = "A carregar dados";
-                await Task.Delay(1000);
-            }
 
-            if (phase == 4)
-            {
-                DashBordProgressMain.Value = 100;
-                TxtMainStatus.Text = "Dados carregados com sucesso";
 
-            }
 
-            if (phase == -1)
-            {
-                DashBordProgressMain.Value = 100;
-                TxtMainStatus.Text = "Não foi possivel carregar dados, tente outra vez conectado a internet";
 
-            }
+
 
         }
 

@@ -130,7 +130,7 @@ namespace CountryInfo
             SfAccordionItem accordionItem7 = new SfAccordionItem();
             accordionItem7.Header = "Mapa";
             
-
+            //the -80 is to deal with the Antarctic that does not work the the SFMap
             if (country.GetLatlng[0]<-80||(country.GetLatlng[0]==0&& country.GetLatlng[1] == 0))
             {
                 accordionItem7.Content = "Dados não disponivel";
@@ -146,14 +146,42 @@ namespace CountryInfo
                 MapData.Center = point;
                 syncMap.Layers.Add(MapData);
 
-                syncMap.ZoomLevel = 5;
+                // The map zoom changes in accordance with the total aria of the country, the bigger the lower the zoom
+                //Note that there exists very small countries like the Vatican
+                if (country.Area!=0)
+                {
+                    if (country.Area < 10000)
+                    {
+                        syncMap.ZoomLevel = 13;
+                    }
+                    else if (country.Area < 100000)
+                    {
+                        syncMap.ZoomLevel = 7;
+                    }
+                    else if (country.Area<700000)
+                    {
+                        syncMap.ZoomLevel = 5;
+                    }
+                    else
+                    {
+                        syncMap.ZoomLevel = 3;
+                    }
+                }
+                else
+                {
+                    syncMap.ZoomLevel = 5;
+                }
+              
                 accordionItem7.Content = syncMap;
             }
-            
+            SfAccordionItem accordionItem8 = new SfAccordionItem();
+            accordionItem8.Header = "Aria Total";
+            accordionItem8.Content = country.GetArea;
 
 
-            
-            
+
+
+
 
 
 
@@ -166,6 +194,7 @@ namespace CountryInfo
             accordion.Items.Add(accordionItem5);
             accordion.Items.Add(accordionItem6);
             accordion.Items.Add(accordionItem7);
+            accordion.Items.Add(accordionItem8);
 
             //Adding the accordion to the view
             this.Content = accordion;

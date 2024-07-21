@@ -215,22 +215,54 @@ namespace Library
 
         public Flags Flags { get; set; }
 
-        public List<double> latlng { get; set; }
+        public List<double> Latlng { get; set; }
 
-        public List<double> GetLatlng { get {
-                if (latlng!=null)
+        /// <summary>
+        /// If no data is available it will return a list of two zeros
+        /// </summary>
+        public List<double> GetLatlng
+        {
+            get
+            {
+                if (Latlng != null)
                 {
-                    return latlng;
+                    return Latlng;
                 }
                 else
                 {
+
                     List<double> temp = new List<double>();
                     temp.Add(0);
                     temp.Add(0);
                     return temp;
                 }
-            
-            } }
+
+            }
+        }
+
+
+        public float Area { get; set; }
+
+
+        public string GetArea
+        {
+            get
+            {
+
+                if (Area!=0)
+                {
+                    return $"{Area.ToString()} Km²";
+                }
+                else
+                {
+                    return NoDataMsg ;
+                }
+
+            }
+        }
 
     }
+
+
+
 }
