@@ -4,6 +4,7 @@ using ModelesLibrary.Country_Components;
 using System;
 using System.Collections.Generic;
 using System.Data.SQLite;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,11 +49,19 @@ namespace Services
 
         }
 
-        public async Task SaveData(List<Country> Countreis)
+        /// <summary>
+        /// This methode save in async the data returned from the api to an local sqlite storage
+        /// </summary>
+        /// <param name="Countries"></param>
+        /// <returns></returns>
+        public async Task SaveDataAsync(List<Country> Countries)
         {
             try
             {
-                foreach (Country country in Countreis)
+                //To avoid the app from getting locked even in async while creating and executing the queries at the same time,
+                //firs the queries are created and stored the the queries are all runed in a wait task
+                List<SQLiteCommand> taskList = new List<SQLiteCommand>();
+                foreach (Country country in Countries)
                 {
                     //this is the default value if no data is Available
                     string LatLng = "0|0";
@@ -65,9 +74,20 @@ namespace Services
 
                     string sql = string.Format("Insert into Countries (NameCommon,NameOfficial,Capital,Region,SubRegion,Population,Gini,LocalRef,Latlng,Area) values('{0}','{1}','{2}','{3}','{4}',{5},'{6}','{7}','{8}',{9})", country.Name.GetOfficialString.Replace("'", "''"), country.Name.GetCommonString.Replace("'", "''"), country.GetCapitalString.FirstOrDefault().Replace("'", "''"), country.GetRegionString, country.GetSubRegionString, country.Population, country.GetGiniList.FirstOrDefault(), country.Flags.GetLocalRefString, LatLng, country.Area);
 
-                    command = new SQLiteCommand(sql, connection);
-                    await command.ExecuteNonQueryAsync();
+                    taskList.Add(new SQLiteCommand(sql, connection));
+
                 }
+
+                
+                await Task.Run(() =>
+                {
+
+                    foreach (SQLiteCommand command in taskList)
+                    {
+                        command.ExecuteNonQueryAsync();
+                    }
+                });
+
                 connection.Close();
             }
             catch (Exception ex)

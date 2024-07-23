@@ -9,13 +9,13 @@ https://stackoverflow.com/questions/7938779/image-column-in-wpf-datagrid
 https://stackoverflow.com/questions/810906/wpf-image-bind-in-datagrid
 https://stackoverflow.com/questions/1951839/how-do-i-show-image-in-wpf-datagrid-column-programmatically
 
-base de dados local.
 
-Pesquisa de Países.
 
-Ajustar o zoom do mapa pela aria do país
 
-Mehorar o await de certas tarefas.
+
+
+
+Verificar o nome se estão com a nomeclatura correta (acabar em async quando necessario)
 
 afixar os tamanhos,
 centrar e quebrar os textos da lista de paises

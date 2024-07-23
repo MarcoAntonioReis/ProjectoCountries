@@ -69,7 +69,7 @@ namespace CountryInfo
         public void SaveToLocal()
         {
             dataService.DeleteData();
-            dataService.SaveData(Countries);
+            dataService.SaveDataAsync(Countries);
         }
 
         /// <summary>
