@@ -1,14 +1,6 @@
 ﻿using Library;
 using Library.Country_Components;
-using ModelesLibrary.Country_Components;
-using System;
-using System.Collections.Generic;
 using System.Data.SQLite;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace Services
 {
@@ -23,6 +15,7 @@ namespace Services
 
         public DataService()
         {
+            //cheeks if the Directory and file exits to avoid a crash, if something is missing it will create them
             if (!Directory.Exists("Data"))
             {
                 Directory.CreateDirectory("Data");
@@ -78,7 +71,7 @@ namespace Services
 
                 }
 
-                
+
                 await Task.Run(() =>
                 {
 
@@ -99,7 +92,10 @@ namespace Services
 
         }
 
-
+        /// <summary>
+        /// Retrieves all the data of the Country table and converts the data into a list of countries if possible.
+        /// </summary>
+        /// <returns></returns>
         public List<Country> Getdata()
         {
             List<Country> coutries = new List<Country>();
@@ -161,7 +157,9 @@ namespace Services
         }
 
 
-
+        /// <summary>
+        /// This method deletes all entries in the country table to allow the new updated values to the stored with no duplicates
+        /// </summary>
         public void DeleteData()
         {
             try

@@ -52,10 +52,10 @@ namespace CountryInfo
                 SetBannersLocalRef();
                 CheckBannersExists();
                 SetFlagsOnGrid();
+                SaveToLocal();
             }
             else
             {
-
                 await MainStatusEvents(-2);
             }
 
@@ -91,27 +91,23 @@ namespace CountryInfo
             bool load;
 
             var connection = networkService.CheckConnection();
-
+            SetDataGridStyle();
             if (!connection.IsSuccess)
             {
                 LoadLocalCountries();
-                SetDataGridStyle();
                 load = false;
             }
             else
             {
-                SetDataGridStyle();
                 await LoadGridAsync();
-                SaveToLocal();
                 load = true;
                 BtnGetBannersSync.IsEnabled = true;
             }
 
-
-            if (Countries != null )
+            //For safety it checks if something went wrong by checking if the list was correctly initialize, because the error messages are dealt when a error may occurred and the reason may change it is not processed here
+            if (Countries != null)
             {
                 List<string> RegionsList = new List<string>();
-                RegionsList.Add(" ");
                 RegionsList.AddRange(Countries.Select(x => x.Region).Distinct().ToList());
                 ComboRegions.ItemsSource = RegionsList;
 
@@ -126,7 +122,7 @@ namespace CountryInfo
                     TxtStatus.Text = string.Format("Dados carregados localmente");
                 }
             }
-
+            
 
 
         }
@@ -137,6 +133,7 @@ namespace CountryInfo
         private async void LoadLocalCountries()
         {
             Countries = dataService.Getdata();
+            Countries.OrderBy(x => x.Name.Common);
             if (Countries != null)
             {
                 SetGridData();
@@ -153,7 +150,7 @@ namespace CountryInfo
         }
 
         /// <summary>
-        /// Calls the api service to get the list of coutries
+        /// Calls the api service to get the list of countries
         /// </summary>
         /// <returns></returns>
         private async Task LoadGridMainDataAsync()
@@ -171,7 +168,7 @@ namespace CountryInfo
 
 
         /// <summary>
-        /// This method is used to add the collum of the country name in the grid
+        /// This method is used to add the column of the country name in the grid
         /// </summary>
         private void SetGridData()
         {
@@ -187,7 +184,16 @@ namespace CountryInfo
 
             NameColumn.Binding = b1;
             NameColumn.Width = 300;
+
+            //manual creates and sets the text Wrap style to allow the text to wrap if its long, and the text to be vertically centerer
+            var textWrappingStyle = new Style(typeof(TextBlock));
+            textWrappingStyle.Setters.Add(new Setter(TextBlock.TextWrappingProperty, TextWrapping.Wrap));
+            textWrappingStyle.Setters.Add(new Setter(TextBlock.VerticalAlignmentProperty, VerticalAlignment.Center));
+            NameColumn.ElementStyle = textWrappingStyle;
+
+
             DataGridCountries.Columns.Add(NameColumn);
+            DataGridCountries.CanUserAddRows = false;
         }
 
         /// <summary>

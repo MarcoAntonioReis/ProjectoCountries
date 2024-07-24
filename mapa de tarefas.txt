@@ -17,8 +17,7 @@ https://stackoverflow.com/questions/1951839/how-do-i-show-image-in-wpf-datagrid-
 
 Verificar o nome se estão com a nomeclatura correta (acabar em async quando necessario)
 
-afixar os tamanhos,
-centrar e quebrar os textos da lista de paises
+
 
 https://help.syncfusion.com/wpf/maps/getting-started
 
