@@ -21,7 +21,7 @@ namespace Services
 
             try
             {
-                using (client.OpenRead("http3://clients.google.com/generate_204"))
+                using (client.OpenRead("http://clients3.google.com/generate_204"))
                 {
                     return new Response
                     {

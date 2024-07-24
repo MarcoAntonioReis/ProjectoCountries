@@ -15,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Library;
 using ModelesLibrary;
+using Services;
 using Syncfusion.UI.Xaml.Maps;
 using Syncfusion.Windows.Controls.Layout;
 
@@ -25,13 +26,25 @@ namespace CountryInfo
     /// </summary>
     public partial class Details : Window
     {
+        private NetworkService networkService;
         public Details(Country country)
         {
             InitializeComponent();
-            SfAccordion accordion = new SfAccordion();
-            //Adding SfAccordion as window content
-            this.Content = accordion;
-            InitAccordion(country);
+            networkService= new NetworkService();
+
+            //checks if the country is not null, and if it is closes the view to avoid a crash
+            if (country != null)
+            {
+                SfAccordion accordion = new SfAccordion();
+                //Adding SfAccordion as window content
+                this.Content = accordion;
+                InitAccordion(country);
+            }
+            else
+            {
+                this.Close();
+            }
+            
         }
 
 
@@ -137,42 +150,52 @@ namespace CountryInfo
             }
             else
             {
-                SfMap syncMap = new SfMap();
-                ImageryLayerExt MapData = new ImageryLayerExt();
-                Point point = new Point();
-                point.X = country.GetLatlng[0];
-                point.Y = country.GetLatlng[1];
-
-                MapData.Center = point;
-                syncMap.Layers.Add(MapData);
-
-                // The map zoom changes in accordance with the total aria of the country, the bigger the lower the zoom
-                //Note that there exists very small countries like the Vatican
-                if (country.Area!=0)
+                //checks again if there is a network connection, this is done again because the connection could go down 
+                var connection = networkService.CheckConnection();
+                if (connection.IsSuccess)
                 {
-                    if (country.Area < 10000)
+                    SfMap syncMap = new SfMap();
+                    ImageryLayerExt MapData = new ImageryLayerExt();
+                    Point point = new Point();
+                    point.X = country.GetLatlng[0];
+                    point.Y = country.GetLatlng[1];
+
+                    MapData.Center = point;
+                    syncMap.Layers.Add(MapData);
+
+                    // The map zoom changes in accordance with the total aria of the country, the bigger the lower the zoom
+                    //Note that there exists very small countries like the Vatican
+                    if (country.Area != 0)
                     {
-                        syncMap.ZoomLevel = 13;
-                    }
-                    else if (country.Area < 100000)
-                    {
-                        syncMap.ZoomLevel = 7;
-                    }
-                    else if (country.Area<700000)
-                    {
-                        syncMap.ZoomLevel = 5;
+                        if (country.Area < 10000)
+                        {
+                            syncMap.ZoomLevel = 13;
+                        }
+                        else if (country.Area < 100000)
+                        {
+                            syncMap.ZoomLevel = 7;
+                        }
+                        else if (country.Area < 700000)
+                        {
+                            syncMap.ZoomLevel = 5;
+                        }
+                        else
+                        {
+                            syncMap.ZoomLevel = 3;
+                        }
                     }
                     else
                     {
-                        syncMap.ZoomLevel = 3;
+                        syncMap.ZoomLevel = 5;
                     }
+
+                    accordionItem7.Content = syncMap;
                 }
                 else
                 {
-                    syncMap.ZoomLevel = 5;
+                    accordionItem7.Content = "Para ver o mapa e necesessario uma conexão a internet.";
                 }
-              
-                accordionItem7.Content = syncMap;
+                
             }
             SfAccordionItem accordionItem8 = new SfAccordionItem();
             accordionItem8.Header = "Aria Total";

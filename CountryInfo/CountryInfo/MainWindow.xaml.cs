@@ -108,7 +108,9 @@ namespace CountryInfo
             if (Countries != null)
             {
                 List<string> RegionsList = new List<string>();
-                RegionsList.AddRange(Countries.Select(x => x.Region).Distinct().ToList());
+                //The empty string is to allow a rest of the search parameters
+                RegionsList.Add(" ");
+                RegionsList.AddRange(Countries.Select(x => x.Region).Distinct().ToList());               
                 ComboRegions.ItemsSource = RegionsList;
 
                 await MainStatusEvents(3);

@@ -16,8 +16,8 @@ https://stackoverflow.com/questions/1951839/how-do-i-show-image-in-wpf-datagrid-
 
 
 Verificar o nome se estão com a nomeclatura correta (acabar em async quando necessario)
-
-
+Adicionar um btn para fazer um download de todas as bandeiras depois de apagadas.
+Verificar se os caminhos funcionão quando a suloção e publicada
 
 https://help.syncfusion.com/wpf/maps/getting-started
 
