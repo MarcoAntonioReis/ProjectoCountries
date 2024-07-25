@@ -33,6 +33,7 @@ namespace Services
                 command = new SQLiteCommand(sqlCommand, connection);
 
                 command.ExecuteNonQuery();
+                 connection.Close();
             }
             catch (Exception ex)
             {
@@ -51,6 +52,7 @@ namespace Services
         {
             try
             {
+                connection.Open();
                 //To avoid the app from getting locked even in async while creating and executing the queries at the same time,
                 //firs the queries are created and stored the the queries are all runed in a wait task
                 List<SQLiteCommand> taskList = new List<SQLiteCommand>();
@@ -65,7 +67,7 @@ namespace Services
                     }
 
 
-                    string sql = string.Format("Insert into Countries (NameCommon,NameOfficial,Capital,Region,SubRegion,Population,Gini,LocalRef,Latlng,Area) values('{0}','{1}','{2}','{3}','{4}',{5},'{6}','{7}','{8}',{9})", country.Name.GetOfficialString.Replace("'", "''"), country.Name.GetCommonString.Replace("'", "''"), country.GetCapitalString.FirstOrDefault().Replace("'", "''"), country.GetRegionString, country.GetSubRegionString, country.Population, country.GetGiniList.FirstOrDefault(), country.Flags.GetLocalRefString, LatLng, country.Area);
+                    string sql = string.Format("Insert into Countries (NameCommon,NameOfficial,Capital,Region,SubRegion,Population,Gini,LocalRef,Latlng,Area) values('{0}','{1}','{2}','{3}','{4}',{5},'{6}','{7}','{8}',{9})", country.Name.GetCommonString.Replace("'", "''"), country.Name.GetCommonString.Replace("'", "''"), country.GetCapitalString.FirstOrDefault().Replace("'", "''"), country.GetRegionString, country.GetSubRegionString, country.Population, country.GetGiniList.FirstOrDefault(), country.Flags.GetLocalRefString, LatLng, country.Area);
 
                     taskList.Add(new SQLiteCommand(sql, connection));
 
@@ -80,15 +82,15 @@ namespace Services
                         command.ExecuteNonQueryAsync();
                     }
                 });
+               
 
-                connection.Close();
             }
             catch (Exception ex)
             {
                 Status = $"Algo correu mal. {ex.Message}";
             }
 
-
+            connection.Close();
 
         }
 
@@ -102,6 +104,7 @@ namespace Services
 
             try
             {
+                connection.Open();
                 string sql = "select NameCommon,NameOfficial,Capital,Region,SubRegion,Population,Gini,LocalRef,Latlng, Area from Countries";
 
                 command = new SQLiteCommand(sql, connection);
@@ -164,11 +167,13 @@ namespace Services
         {
             try
             {
+                connection.Open();
                 string sql = "Delete from Countries";
 
                 command = new SQLiteCommand(sql, connection);
 
                 command.ExecuteNonQuery();
+                connection.Close();
             }
             catch (Exception ex)
             {

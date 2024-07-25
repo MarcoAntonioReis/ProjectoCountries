@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CountryInfo"
         mc:Ignorable="d"
-        Title="MainWindow" Height="636" Width="581"
+        Title="Country Info" Height="636" Width="581"
         ResizeMode="NoResize">
     <Grid Margin="20" >
         <Grid.Style>
@@ -36,7 +36,7 @@
 
             </DataGrid.Resources>
         </DataGrid>
-        <Button x:Name="BtnGetBannersSync" Grid.Row="4" Margin="0,10,0,10" Padding="5" Content="Download De bandeiras" Click="GetBannersSync_Click"></Button>
+        <Button x:Name="BtnGetBannersSync" Grid.Row="4" Margin="0,10,0,10" Padding="5" Content="Download De Bandeiras" Click="GetBannersSync_Click"></Button>
         <ProgressBar x:Name="dashBordProgress" Value="0" Height="30" Margin="0,10,0,10" Grid.Row="5"></ProgressBar>
         <TextBlock x:Name="TxtStatus" Grid.Row="6" Height="auto" ></TextBlock>
     </Grid>

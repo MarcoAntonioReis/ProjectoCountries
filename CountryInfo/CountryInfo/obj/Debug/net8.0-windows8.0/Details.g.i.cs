@@ -59,7 +59,7 @@ namespace CountryInfo {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/CountryInfo;component/details.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/CountryInfo;V1.0.0.0;component/details.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\Details.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

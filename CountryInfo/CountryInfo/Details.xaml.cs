@@ -63,7 +63,7 @@ namespace CountryInfo
             SfAccordionItem accordionItem1 = new SfAccordionItem();
             accordionItem1.Header = "Info Basica";
             
-            tempContent = $"Nome comum: {country.Name.GetCommonString} {Environment.NewLine}";
+            tempContent = $"Nome Comum: {country.Name.GetCommonString} {Environment.NewLine}";
             tempContent += $"Nome Oficial: {country.Name.GetOfficialString}";
 
             accordionItem1.Content = tempContent;

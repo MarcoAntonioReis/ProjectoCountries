@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ModelesLibrary
 {/// <summary>
-/// todo add instructions
+/// Model for web response status
 /// </summary>
     public class Response
     {

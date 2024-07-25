@@ -38,9 +38,9 @@ namespace CountryInfo
 
             FlagsPath = GetFlagsPath();
             BtnGetBannersSync.IsEnabled = false;
-
+            BtnSearch.IsEnabled = false;
             LoadData();
-
+            
         }
 
 
@@ -71,10 +71,8 @@ namespace CountryInfo
 
         }
 
-        /// <summary>
-        /// TODO melhorar
-        /// </summary>
-        public void SaveToLocal()
+
+        public async void SaveToLocal()
         {
             dataService.DeleteData();
             dataService.SaveDataAsync(Countries);
@@ -123,6 +121,7 @@ namespace CountryInfo
 
                 await MainStatusEvents(3);
                 await MainStatusEvents(4);
+                BtnSearch.IsEnabled = true;
                 if (load)
                 {
                     TxtStatus.Text = string.Format("Dados actualizados da internet em {0:F}", DateTime.Now);
@@ -143,9 +142,10 @@ namespace CountryInfo
         private async void LoadLocalCountries()
         {
             Countries = dataService.Getdata();
-            Countries.OrderBy(x => x.Name.Common);
+           
             if (Countries != null && Countries.Count != 0)
             {
+                Countries.OrderBy(x => x.Name.GetCommonString);
                 SetGridData();
                 CheckBannersExists();
                 SetFlagsOnGrid();
@@ -299,9 +299,10 @@ namespace CountryInfo
         private async void GetBannersSync_Click(object sender, RoutedEventArgs e)
         {
             BtnGetBannersSync.IsEnabled = false;
-            await DownloadBanners();
+            await DownloadBanners();            
             SetBannersLocalRef();
             SetFlagsOnGrid();
+            SaveToLocal();
             BtnGetBannersSync.IsEnabled = true;
         }
 
@@ -492,7 +493,11 @@ namespace CountryInfo
             {
                 if (!string.IsNullOrWhiteSpace(NameValue))
                 {
-                    SearchResult = Countries.Where(x => x.Name.Common.ToLower().Contains(NameValue.ToLower())).ToList();
+                    if (Countries!=null)
+                    {
+                        SearchResult = Countries.Where(x => x.Name.Common.ToLower().Contains(NameValue.ToLower())).ToList();
+                    }
+                    
                 }
                 else
                 {

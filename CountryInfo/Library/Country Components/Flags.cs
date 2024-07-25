@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Library.Country_Components
 {
-    ///TODO place Read Only properties to addle data not found
+
     public class Flags
     {
 

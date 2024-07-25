@@ -80,8 +80,16 @@ namespace Services
                     if (filepath.EndsWith("noImg.png") || !File.Exists(filepath))
                     {
                         Uri uri = new Uri(country.Flags.Png);
+                        try
+                        {
+                            await webClient.DownloadFileTaskAsync(uri, filepath);
+                        }
+                        catch (Exception)
+                        {
 
-                        await webClient.DownloadFileTaskAsync(uri, filepath);
+                            
+                        }
+                        
                     }
 
                 }
