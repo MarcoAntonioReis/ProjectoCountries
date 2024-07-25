@@ -22,5 +22,14 @@ namespace CountryInfo.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool ToPublish {
+            get {
+                return ((bool)(this["ToPublish"]));
+            }
+        }
     }
 }

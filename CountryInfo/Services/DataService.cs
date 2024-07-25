@@ -43,7 +43,7 @@ namespace Services
         }
 
         /// <summary>
-        /// This methode save in async the data returned from the api to an local sqlite storage
+        /// This method save in async the data returned from the api to an local sqlite storage
         /// </summary>
         /// <param name="Countries"></param>
         /// <returns></returns>

@@ -22,12 +22,16 @@ namespace CountryInfo
         private List<Country> Countries;
         private string FlagsPath;
 
+        //this setting is defined in the Settings.settings to avoid human error
+        //this value should only be true if this application needs to be published
+        private bool PublishMode;
+
         public MainWindow()
         {
 
             InitializeComponent();
             MainStatusEvents(1);
-
+            PublishMode = Properties.Settings.Default.ToPublish;
             networkService = new NetworkService();
             apiService = new ApiService();
             dataService = new DataService();
@@ -47,7 +51,8 @@ namespace CountryInfo
         {
 
             await LoadGridMainDataAsync();
-            if (Countries != null)
+
+            if (Countries != null && Countries.Count != 0)
             {
                 SetBannersLocalRef();
                 CheckBannersExists();
@@ -58,6 +63,9 @@ namespace CountryInfo
             {
                 await MainStatusEvents(-2);
             }
+
+
+
 
 
 
@@ -105,12 +113,12 @@ namespace CountryInfo
             }
 
             //For safety it checks if something went wrong by checking if the list was correctly initialize, because the error messages are dealt when a error may occurred and the reason may change it is not processed here
-            if (Countries != null)
+            if (Countries != null && Countries.Count != 0)
             {
                 List<string> RegionsList = new List<string>();
                 //The empty string is to allow a rest of the search parameters
                 RegionsList.Add(" ");
-                RegionsList.AddRange(Countries.Select(x => x.Region).Distinct().ToList());               
+                RegionsList.AddRange(Countries.Select(x => x.Region).Distinct().ToList());
                 ComboRegions.ItemsSource = RegionsList;
 
                 await MainStatusEvents(3);
@@ -124,7 +132,7 @@ namespace CountryInfo
                     TxtStatus.Text = string.Format("Dados carregados localmente");
                 }
             }
-            
+
 
 
         }
@@ -136,7 +144,7 @@ namespace CountryInfo
         {
             Countries = dataService.Getdata();
             Countries.OrderBy(x => x.Name.Common);
-            if (Countries != null)
+            if (Countries != null && Countries.Count != 0)
             {
                 SetGridData();
                 CheckBannersExists();
@@ -162,10 +170,13 @@ namespace CountryInfo
 
 
             Countries = (List<Country>)response.Result;
+            if (Countries != null)
+            {
+                Countries = Countries.OrderBy(x => x.Name.Common).ToList();
 
-            Countries = Countries.OrderBy(x => x.Name.Common).ToList();
+                SetGridData();
+            }
 
-            SetGridData();
         }
 
 
@@ -219,9 +230,19 @@ namespace CountryInfo
         {
             string workingDirectory = Environment.CurrentDirectory;
 
-            //Warning does not work in published
-            string GenFlagsPath = $"{Directory.GetParent(workingDirectory).Parent.Parent.FullName}/Flags";
-            //string RelasePath = $"{System.AppDomain.CurrentDomain.BaseDirectory}/Flags";
+            string GenFlagsPath;
+            if (!PublishMode)
+            {
+                GenFlagsPath = @$"{Directory.GetParent(workingDirectory).Parent.Parent.FullName}\Flags";
+            }
+            else
+            {
+
+                GenFlagsPath = @$"{AppDomain.CurrentDomain.BaseDirectory}Flags";
+
+            }
+
+
 
 
             return @$"{GenFlagsPath}\";
@@ -266,6 +287,7 @@ namespace CountryInfo
             colBanner.Width = 200;
             DataGridCountries.Columns.Add(colBanner);
 
+
         }
 
 
@@ -294,16 +316,27 @@ namespace CountryInfo
             if (!File.Exists(@$"{FlagsPath}\noImg.png"))
             {
                 string workingDirectory = Environment.CurrentDirectory;
-                string ResourcesPath = @$"{Directory.GetParent(workingDirectory).Parent.Parent.FullName}/Resources";
 
                 apiService.CheckDirectory(GetFlagsPath());
 
-                if (File.Exists($"{Directory.GetParent(workingDirectory).Parent.Parent.FullName}//Resources//noImg.png"))
+                if (!PublishMode)
                 {
-                    File.Copy(@$"{ResourcesPath}\noImg.png", @$"{FlagsPath}\noImg.png");
+                    string ResourcesPath = @$"{Directory.GetParent(workingDirectory).Parent.Parent.FullName}/Resources";
+                    if (File.Exists($"{Directory.GetParent(workingDirectory).Parent.Parent.FullName}//Resources//noImg.png"))
+                    {
+                        File.Copy(@$"{ResourcesPath}\noImg.png", @$"{FlagsPath}\noImg.png");
+                    }
 
-                    //File.WriteAllBytes(@$"{workingDirectory}\flags\noImg.png", Properties.Resources.noImg);
                 }
+                else
+                {
+
+                    if (File.Exists($"{workingDirectory}//Resources//noImg.png"))
+                    {
+                        File.WriteAllBytes(@$"{workingDirectory}\\flags\\noImg.png", Properties.Resources.noImg);
+                    }
+                }
+
 
             }
 
@@ -333,9 +366,10 @@ namespace CountryInfo
             {
                 if (country.Flags != null)
                 {
-                    country.Flags.LocalRef = @$"{FlagsPath}\{country.Flags.Png.Substring(country.Flags.Png.LastIndexOf('/') + 1)}";
+                    country.Flags.LocalRef = @$"{FlagsPath}{country.Flags.Png.Substring(country.Flags.Png.LastIndexOf('/') + 1)}";
                 }
             }
+
         }
 
 
@@ -401,7 +435,7 @@ namespace CountryInfo
                     break;
                 case -1:
                     DashBordProgressMain.Value = 100;
-                    TxtMainStatus.Text = "Não foi possivel carregar dados, tente outra vez conectado a internet.";
+                    TxtMainStatus.Text = "Não foi possivel carregar dados, tem de estar ligado a internet pelo menos uma vez.";
                     break;
 
                 case -2:
@@ -469,6 +503,6 @@ namespace CountryInfo
             return SearchResult;
         }
 
-     
+
     }
 }
