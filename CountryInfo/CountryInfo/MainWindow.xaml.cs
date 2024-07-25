@@ -220,11 +220,11 @@ namespace CountryInfo
             string workingDirectory = Environment.CurrentDirectory;
 
             //Warning does not work in published
-            //string GenFlagsPath = $"{Directory.GetParent(workingDirectory).Parent.Parent.FullName}/Flags";
-            string RelasePath = $"{System.AppDomain.CurrentDomain.BaseDirectory}/Flags";
+            string GenFlagsPath = $"{Directory.GetParent(workingDirectory).Parent.Parent.FullName}/Flags";
+            //string RelasePath = $"{System.AppDomain.CurrentDomain.BaseDirectory}/Flags";
 
 
-            return @$"{RelasePath}\";
+            return @$"{GenFlagsPath}\";
 
 
         }
@@ -276,11 +276,11 @@ namespace CountryInfo
         /// <param name="e"></param>
         private async void GetBannersSync_Click(object sender, RoutedEventArgs e)
         {
-
+            BtnGetBannersSync.IsEnabled = false;
             await DownloadBanners();
             SetBannersLocalRef();
             SetFlagsOnGrid();
-
+            BtnGetBannersSync.IsEnabled = true;
         }
 
 
@@ -294,15 +294,15 @@ namespace CountryInfo
             if (!File.Exists(@$"{FlagsPath}\noImg.png"))
             {
                 string workingDirectory = Environment.CurrentDirectory;
-                //string ResourcesPath = @$"{Directory.GetParent(workingDirectory).Parent.Parent.FullName}/Resources";
+                string ResourcesPath = @$"{Directory.GetParent(workingDirectory).Parent.Parent.FullName}/Resources";
 
                 apiService.CheckDirectory(GetFlagsPath());
 
-                if (File.Exists(@$"{Directory.GetParent(workingDirectory).Parent.Parent.FullName}/Resources/noImg.png"))
+                if (File.Exists($"{Directory.GetParent(workingDirectory).Parent.Parent.FullName}//Resources//noImg.png"))
                 {
-                    //File.Copy(@$"{ResourcesPath}\noImg.png", @$"{FlagsPath}\noImg.png");
+                    File.Copy(@$"{ResourcesPath}\noImg.png", @$"{FlagsPath}\noImg.png");
 
-                    File.WriteAllBytes(@$"{workingDirectory}\flags\noImg.png", Properties.Resources.noImg);
+                    //File.WriteAllBytes(@$"{workingDirectory}\flags\noImg.png", Properties.Resources.noImg);
                 }
 
             }
@@ -468,5 +468,7 @@ namespace CountryInfo
 
             return SearchResult;
         }
+
+     
     }
 }
